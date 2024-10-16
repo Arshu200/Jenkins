@@ -29,7 +29,7 @@
 
 FROM python:2.7-alpine
 
-LABEL maintainer="arshad22shaik@gmail.com"
+# LABEL maintainer="arshad22shaik@gmail.com"
 
 RUN pip install web.py 
 
