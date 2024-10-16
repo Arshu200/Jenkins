@@ -1,4 +1,3 @@
-# addition.py
 FROM python:2.7-alpine
 
 LABEL maintainer="arshad22shaik@gmail.com"
