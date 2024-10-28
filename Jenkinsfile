@@ -14,9 +14,9 @@ pipeline {
             stage('Docker Build') {
                 steps {
                     script {
-                        sh "docker build -t ${DOCKER_IMAGE}:${env.BUILD_ID} ."
+                        sh "sudo docker build -t ${DOCKER_IMAGE}:${env.BUILD_ID} ."
                         echo "Docker image build successfully"
-                        sh "docker images"
+                        sh "sudo docker images"
                 }
             }
             }
