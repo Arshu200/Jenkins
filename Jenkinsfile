@@ -6,9 +6,7 @@ pipeline {
     
         stages {
             stage('Checkout') {
-                steps {
-                    git 'https://github.com/Arshu200/Jenkins.git'
-                }
+                checkout scm
             }
     
             stage('Docker Build') {
