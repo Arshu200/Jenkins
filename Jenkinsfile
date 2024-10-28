@@ -24,7 +24,7 @@ pipeline {
         stage("TRIVY"){
             steps{
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
-                    sh "trivy image --no-progress --exit-code 1 --severity MEDIUM,HIGH,CRITICAL --format table ${DOCKER_IMAGE}:${env.BUILD_ID}"
+                    sh "trivy image --no-progress --exit-code 1 --severity LOW,MEDIUM,HIGH,CRITICAL --format table ${DOCKER_IMAGE}:${env.BUILD_ID}"
                  }   
             }
         }   
