@@ -1,0 +1,30 @@
+pipeline {
+        agent any
+        environment {
+            DOCKER_IMAGE = 'arshad200/trivy'
+        }
+    
+        stages {
+            stage('Checkout') {
+                steps {
+                    git 'https://github.com/Arshu200/Jenkins.git'
+                }
+            }
+    
+            stage('Docker Build') {
+                steps {
+                    script {
+                        sh "docker build -t ${DOCKER_IMAGE}:${env.BUILD_ID} ."
+                }
+            }
+            }
+
+            stage('Trivy Scan') {
+            steps {
+                script {
+                    sh "trivy image --exit-code 1 ${DOCKER_IMAGE}:${env.BUILD_ID}"
+                }
+            }
+            }   
+        }
+    }
